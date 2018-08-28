@@ -14,16 +14,15 @@ before_script:
 
 
 before_deploy :
-  - mv ./target/roundup-generator.jar ./target/twis.jar 
-  - git config --local user.name "${GIT_USER_NAME}"
-  - git config --local user.email "${GIT_USER_EMAIL}"
-  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+  - ./before_deploy.sh
 
 deploy  :
   provider: releases
   api_key: "${GITHUB_API_KEY}"
   file: "./target/roundup-generator.jar"
   skip_cleanup: true
+
+
 
 # install:
 #   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V -U
