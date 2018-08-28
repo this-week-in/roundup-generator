@@ -74,21 +74,6 @@ data class GenerateArguments(
 		var print: Boolean = false
 )
 
-/*
-fun <T> Boolean.ifTrue(callback: () -> Unit): Unit {
-	if (this) {
-		callback()
-	}
-}
-
-fun <T> Boolean.ifFalse (callback: () -> Unit): Unit {
-	if (!this) {
-		callback()
-	}
-}
-*/
-
-
 @ShellComponent
 class RoundupCommands(private val roundupService: RoundupService) {
 
