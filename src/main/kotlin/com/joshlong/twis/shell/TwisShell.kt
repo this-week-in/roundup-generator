@@ -141,7 +141,12 @@ class RoundupService(private val pinboardClient: PinboardClient,
 								.replace("_URL_", bookmark.href!!, true)
 								.replace("_TITLE_", bookmark.description!!)
 					} else {
-						bookmark.description
+						if (bookmark.description == bookmark.href) {
+							bookmark.extended
+						}
+						else {
+							bookmark.description
+						}
 					}
 					val title = bookmark.description!!.trim()
 					val url = bookmark.href!!
