@@ -6,3 +6,4 @@ Every week I look at all the news that's fit to blog, annotate the bookmarks in 
 
 ## Building
 * you can build it by runnning `./mvnw clean package` in the root directory. Make sure that you have an environment variable, `PINBOARD_TOKEN`, somewhere in your environment before launching this application.
+
