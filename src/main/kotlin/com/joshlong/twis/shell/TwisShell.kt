@@ -3,18 +3,15 @@ package com.joshlong.twis.shell
 import com.beust.jcommander.Parameter
 import org.jline.utils.AttributedString
 import org.jline.utils.AttributedStyle
-import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.EnableConfigurationProperties
-import org.springframework.boot.diagnostics.FailureAnalysis
-import org.springframework.boot.diagnostics.FailureAnalyzer
+import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
 import org.springframework.shell.jline.PromptProvider
 import org.springframework.shell.standard.ShellComponent
 import org.springframework.shell.standard.ShellMethod
 import org.springframework.shell.standard.ShellOption
-import org.springframework.stereotype.Component
 import org.springframework.stereotype.Service
 import pinboard.Bookmark
 import pinboard.PinboardClient
@@ -42,7 +39,7 @@ class TwisShell {
 }
 
 fun main(args: Array<String>) {
-	SpringApplication.run(TwisShell::class.java, *args)
+	runApplication<TwisShell>(*args)
 }
 
 object DateUtils {
@@ -76,7 +73,6 @@ data class GenerateArguments(
               (you may use this option or the --output option, but not both)""", required = false)
 		var print: Boolean = false
 )
-
 
 
 @ShellComponent
@@ -143,8 +139,7 @@ class RoundupService(private val pinboardClient: PinboardClient,
 					} else {
 						if (bookmark.description == bookmark.href) {
 							bookmark.extended
-						}
-						else {
+						} else {
 							bookmark.description
 						}
 					}
