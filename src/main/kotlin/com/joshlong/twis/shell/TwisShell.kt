@@ -53,23 +53,23 @@ object DateUtils {
 
 data class GenerateArguments(
 
-		@Parameter(names = arrayOf("--tag"), description = "which tag would you like to use to seed the entries?", required = false)
+		@Parameter(names = ["--tag"], description = "which tag would you like to use to seed the entries?", required = false)
 		var tag: String = "twis",
 
-		@Parameter(names = arrayOf("--from"), description = "from which date would you like to include (yyyy-MM-dd) entries?", required = false)
+		@Parameter(names = ["--from"], description = "from which date would you like to include (yyyy-MM-dd) entries?", required = false)
 		var from: Date = DateUtils.oneWeek(),
 
-		@Parameter(names = arrayOf("--to"), description = "to which date would you like to include (yyyy-MM-dd) entries?", required = false)
+		@Parameter(names = ["--to"], description = "to which date would you like to include (yyyy-MM-dd) entries?", required = false)
 		var to: Date = Date(),
 
-		@Parameter(names = arrayOf("--mark-as-processed"), description = "should we mark entries as processed?", required = false)
+		@Parameter(names = ["--mark-as-processed"], description = "should we mark entries as processed?", required = false)
 		var markAsProcessed: Boolean = false,
 
-		@Parameter(names = arrayOf("--output"), description = """to which java.io.File should we write the generated report?
+		@Parameter(names = ["--output"], description = """to which java.io.File should we write the generated report?
             (you may use this option or the --stdout option, but not both.)""", required = false)
 		var outputFile: String = "${System.getProperty("user.home")}/Desktop/report.md",
 
-		@Parameter(names = arrayOf("--stdout"), description = """write the generated report to stdout, which is the default behavior.
+		@Parameter(names = ["--stdout"], description = """write the generated report to stdout, which is the default behavior.
               (you may use this option or the --output option, but not both)""", required = false)
 		var print: Boolean = false
 )
